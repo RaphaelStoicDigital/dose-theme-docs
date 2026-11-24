@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dose theme documentation</title>
+<meta name="description" content="How to set up and customize the Dose Shopify theme for supplement, wellness and botanical stores.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --surface: #f4f7f8;
+    --text: #1c2b33;
+    --muted: #55656d;
+    --accent: #0e6e7e;
+    --border: #e3e8eb;
+    --code: #eef3f4;
+    --radius: 10px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0f1a1f; --surface: #16242a; --text: #e6eef0; --muted: #a3b3b9;
+      --accent: #6cc7d6; --border: #24363d; --code: #1b2c33;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, Roboto, sans-serif;
+  }
+  a { color: var(--accent); }
+  .layout { display: grid; max-width: 1180px; margin: 0 auto; padding: 0 16px; }
+  nav.toc { padding: 24px 0; border-bottom: 1px solid var(--border); }
+  nav.toc strong { display: block; margin-bottom: 8px; }
+  nav.toc ol { margin: 0; padding-left: 20px; columns: 2; column-gap: 24px; font-size: 15px; }
+  main { padding: 24px 0 80px; min-width: 0; }
+  header.top { padding: 40px 0 8px; }
+  header.top p { color: var(--muted); max-width: 46rem; margin: 8px 0 0; }
+  h1 { font-size: 2.25rem; line-height: 1.15; margin: 0; }
+  h2 { font-size: 1.6rem; margin: 3rem 0 0.75rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+  h3 { font-size: 1.15rem; margin: 1.75rem 0 0.5rem; }
+  p, li { max-width: 48rem; }
+  code { background: var(--code); padding: 0.1em 0.35em; border-radius: 4px; font-size: 0.92em; }
+  pre { background: var(--code); padding: 14px 16px; border-radius: var(--radius); overflow-x: auto; font-size: 14px; }
+  .note { background: var(--surface); border-left: 4px solid var(--accent); padding: 12px 16px; border-radius: 0 var(--radius) var(--radius) 0; margin: 1rem 0; max-width: 48rem; }
+  .warn { border-left-color: #b26b00; }
+  table { border-collapse: collapse; width: 100%; max-width: 48rem; margin: 1rem 0; font-size: 15px; display: block; overflow-x: auto; }
+  th, td { text-align: left; border-bottom: 1px solid var(--border); padding: 8px 10px; vertical-align: top; }
+  th { background: var(--surface); }
+  .badge { display: inline-block; font-size: 12px; padding: 2px 8px; border-radius: 999px; background: var(--surface); border: 1px solid var(--border); }
+  @media (min-width: 990px) {
+    .layout { grid-template-columns: 250px minmax(0, 1fr); gap: 48px; }
+    nav.toc { position: sticky; top: 0; align-self: start; max-height: 100vh; overflow-y: auto; border-bottom: 0; }
+    nav.toc ol { columns: 1; }
+  }
+  @media (max-width: 600px) { nav.toc ol { columns: 1; } h1 { font-size: 1.8rem; } }
+</style>
+</head>
+<body>
+<div class="layout">
+  <nav class="toc" aria-label="Contents">
+    <strong>Dose theme</strong>
+    <ol>
+      <li><a href="#getting-started">Getting started</a></li>
+      <li><a href="#styles">Styles (presets)</a></li>
+      <li><a href="#theme-settings">Theme settings</a></li>
+      <li><a href="#header-footer">Header and footer</a></li>
+      <li><a href="#home">Home page sections</a></li>
+      <li><a href="#product">Product page</a></li>
+      <li><a href="#supplement-facts">Supplement facts setup</a></li>
+      <li><a href="#subscriptions">Subscriptions</a></li>
+      <li><a href="#collections">Collections and search</a></li>
+      <li><a href="#quiz">Product quiz</a></li>
+      <li><a href="#bundle">Bundle builder</a></li>
+      <li><a href="#cart">Cart</a></li>
+      <li><a href="#blog">Blog and pages</a></li>
+      <li><a href="#apps">Apps and custom content</a></li>
+      <li><a href="#languages">Languages</a></li>
+      <li><a href="#performance">Performance and accessibility</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#support">Support</a></li>
+      <li><a href="#changelog">Changelog</a></li>
+    </ol>
+  </nav>
+
+  <main>
+    <header class="top">
+      <h1>Dose theme documentation</h1>
+      <p>Dose is a Shopify theme for supplement, wellness and botanical brands. It helps shoppers understand what is inside each product and choose with confidence: supplement facts panels, ingredient spotlights, a product quiz, a bundle builder and subscription-ready product pages.</p>
+    </header>
+
+    <h2 id="getting-started">Getting started</h2>
+    <h3>Install the theme</h3>
+    <ol>
+      <li>In Shopify admin, go to <strong>Online Store → Themes</strong>.</li>
+      <li>Add Dose from the Shopify Theme Store and choose a style (Dose or Botanical).</li>
+      <li>Click <strong>Customize</strong> to open the theme editor. Preview your store before you publish.</li>
+    </ol>
+    <h3>Recommended first steps</h3>
+    <ol>
+      <li>Upload your logo in <strong>Header</strong> and choose your colors in <strong>Theme settings → Colors</strong>.</li>
+      <li>Create your main menu in <strong>Online Store → Navigation</strong>. Nested items appear as dropdowns.</li>
+      <li>Create collections for the goals your products support, for example Sleep, Energy, Immunity and Focus. These work well in the <strong>Shop by goal</strong> section.</li>
+      <li>Set up the <a href="#supplement-facts">supplement facts metafields</a> so every product page shows its label.</li>
+      <li>Optionally create a <a href="#quiz">quiz page</a> and a <a href="#bundle">bundle page</a>.</li>
+    </ol>
+    <div class="note">Most text, images and links on the demo store are set in the theme editor. Your own products, collections, pages and blog posts are added in Shopify admin and then connected to sections.</div>
+
+    <h2 id="styles">Styles (presets)</h2>
+    <p>Dose includes two styles. You can switch at any time in <strong>Theme settings</strong>; your content stays the same.</p>
+    <table>
+      <tr><th>Style</th><th>Look</th><th>Best for</th></tr>
+      <tr><td><strong>Dose</strong></td><td>White and deep teal, clean sans-serif headings, softly rounded buttons.</td><td>Supplements, vitamins, sports nutrition, clinical brands.</td></tr>
+      <tr><td><strong>Botanical</strong></td><td>Cream and sage green, serif headings, pill-shaped buttons.</td><td>Herbal teas, botanicals, natural skincare, apothecary brands.</td></tr>
+    </table>
+
+    <h2 id="theme-settings">Theme settings</h2>
+    <p>Open the theme editor and click the gear icon to edit global settings.</p>
+    <table>
+      <tr><th>Group</th><th>What you can change</th></tr>
+      <tr><td>Colors</td><td>Color schemes with background, text, accent, button, button label and border colors. Each section has a <em>Color scheme</em> setting that picks one of these schemes.</td></tr>
+      <tr><td>Typography</td><td>Heading font, body font and a size scale for each.</td></tr>
+      <tr><td>Layout</td><td>Maximum page width, page margin and spacing between sections.</td></tr>
+      <tr><td>Shapes</td><td>Corner radius for buttons, inputs and cards.</td></tr>
+      <tr><td>Cart</td><td>Cart type (drawer or page) and the drawer color scheme.</td></tr>
+      <tr><td>Social media</td><td>Links to Instagram, TikTok, Facebook, YouTube, X and Pinterest. Icons appear in the footer.</td></tr>
+    </table>
+    <div class="note">Tip: keep enough contrast between text and background colors. Aim for a contrast ratio of at least 4.5:1 so text stays readable for everyone.</div>
+
+    <h2 id="header-footer">Header and footer</h2>
+    <h3>Header</h3>
+    <ul>
+      <li><strong>Logo</strong> and <strong>Logo width</strong>. Without a logo, your store name is shown.</li>
+      <li><strong>Menu</strong>: menu items with child links open as dropdowns on desktop and as expandable lists on mobile.</li>
+      <li><strong>Customer account menu</strong>: shown in the account panel when customers are signed in. Dose uses Shopify's customer accounts.</li>
+      <li><strong>Country/region</strong> and <strong>language</strong> selectors appear when you sell in more than one market or language.</li>
+      <li><strong>Sticky header</strong> keeps the header visible while scrolling.</li>
+    </ul>
+    <h3>Announcement bar</h3>
+    <p>A short message above the header, with an optional link. Use it for shipping thresholds or current offers.</p>
+    <h3>Footer</h3>
+    <ul>
+      <li><strong>Menu</strong> blocks show a heading and a menu. <strong>Text</strong> blocks show a heading and short text.</li>
+      <li>Optional newsletter signup, Follow on Shop button, country/region and language selectors, payment icons and the "Powered by Shopify" link.</li>
+    </ul>
+
+    <h2 id="home">Home page sections</h2>
+    <p>Add, remove and reorder sections from the left sidebar of the theme editor. All sections below can also be added to other page templates.</p>
+    <table>
+      <tr><th>Section</th><th>Use it to</th></tr>
+      <tr><td>Hero</td><td>Introduce your brand with an image, heading, two buttons and a trust line (for example a review score). Choose a split or overlay layout and an optional separate mobile image.</td></tr>
+      <tr><td>Benefits bar</td><td>Show short reassurance points with icons, such as testing, shipping or guarantees.</td></tr>
+      <tr><td>Shop by goal</td><td>Link to collections by goal. Each block uses the collection image or a custom image, plus an icon.</td></tr>
+      <tr><td>Featured collection</td><td>Show products from one collection, with an optional "View all" button.</td></tr>
+      <tr><td>Key ingredients</td><td>Highlight ingredients with their dose, benefit and source.</td></tr>
+      <tr><td>Image with text</td><td>Tell your story or brand promise. Supports a list, an expert quote with name and credential, and a button.</td></tr>
+      <tr><td>Comparison table</td><td>Compare your brand with typical alternatives using yes/no marks or short text.</td></tr>
+      <tr><td>Testimonials</td><td>Show customer reviews with a rating, a short result headline, quote, name and optional photo.</td></tr>
+      <tr><td>Daily routine</td><td>Explain how and when to take your products, step by step (morning, evening and so on).</td></tr>
+      <tr><td>Subscription comparison</td><td>Compare one-time purchase and subscription prices for a product. Requires a subscription app (see <a href="#subscriptions">Subscriptions</a>).</td></tr>
+      <tr><td>FAQ</td><td>Answer common questions in an accessible accordion.</td></tr>
+      <tr><td>Product recommendations</td><td>Show related or complementary products chosen by Shopify.</td></tr>
+      <tr><td>Contact form</td><td>Let customers send you a message.</td></tr>
+      <tr><td>Custom section</td><td>Build your own layout with theme and app blocks.</td></tr>
+    </table>
+    <div class="note warn"><strong>Health claims:</strong> the demo text is an example. Make sure your own product claims follow the rules in the countries where you sell, and consider adding a disclaimer such as "These statements have not been evaluated by the Food and Drug Administration."</div>
+
+    <h2 id="product">Product page</h2>
+    <p>The <strong>Product information</strong> section is built from blocks you can add, remove and reorder:</p>
+    <table>
+      <tr><th>Block</th><th>Details</th></tr>
+      <tr><td>Title, Price, Variant picker</td><td>Core product details. Sale prices show the original price crossed out. Sold-out variants are shown crossed out.</td></tr>
+      <tr><td>Buy buttons</td><td>Quantity selector, dynamic checkout buttons, pickup availability and purchase options for subscriptions.</td></tr>
+      <tr><td>Badges</td><td>Dietary or certification badges from a comma-separated list, for example <code>Vegan, Gluten-free, Non-GMO</code>. Connect the setting to a product metafield to vary badges per product. Known words get a matching icon.</td></tr>
+      <tr><td>Supplement facts</td><td>An accessible facts panel. See <a href="#supplement-facts">Supplement facts setup</a>.</td></tr>
+      <tr><td>Supply calculator</td><td>Shoppers choose how many servings they take per day and see how long one container lasts.</td></tr>
+      <tr><td>Lab report</td><td>Link to a certificate of analysis or lab report, with an optional batch number.</td></tr>
+      <tr><td>Complementary products</td><td>Suggests products that pair well. Requires the free <strong>Shopify Search &amp; Discovery</strong> app to choose the products.</td></tr>
+      <tr><td>Collapsible tab</td><td>Extra details such as how to use, shipping and returns. Content can come from a page.</td></tr>
+      <tr><td>Text, Description</td><td>Short text and the product description.</td></tr>
+      <tr><td>App blocks</td><td>Add blocks from installed apps, such as reviews.</td></tr>
+    </table>
+    <p>Below the product information you can add <strong>Daily routine</strong>, <strong>Product recommendations</strong> and <strong>Subscription comparison</strong>.</p>
+    <h3>Pickup availability</h3>
+    <p>When local pickup is enabled in <strong>Settings → Shipping and delivery</strong>, the buy buttons show whether the selected variant can be picked up and where.</p>
+
+    <h2 id="supplement-facts">Supplement facts setup</h2>
+    <p>The facts panel reads from three product metafields, so each product shows its own label.</p>
+    <ol>
+      <li>Go to <strong>Settings → Custom data → Products</strong> and add these definitions:
+        <table>
+          <tr><th>Name</th><th>Namespace and key</th><th>Type</th></tr>
+          <tr><td>Serving size</td><td><code>custom.serving_size</code></td><td>Single line text</td></tr>
+          <tr><td>Servings per container</td><td><code>custom.servings_per_container</code></td><td>Single line text</td></tr>
+          <tr><td>Supplement facts</td><td><code>custom.supplement_facts</code></td><td>Multi-line text</td></tr>
+        </table>
+      </li>
+      <li>Open each product and fill in the metafields at the bottom of the page.</li>
+      <li>In the theme editor, open a product page, select the <strong>Supplement facts</strong> block and connect each setting to its metafield using the dynamic source icon. The demo templates are already connected.</li>
+    </ol>
+    <h3>Nutrient row format</h3>
+    <p>Write one nutrient per line, with columns separated by a vertical bar: name, amount and % Daily Value.</p>
+<pre>Magnesium (as magnesium glycinate) | 200 mg | 48%
+Calm Blend | 350 mg |
+- L-Theanine | 200 mg |
+- Ashwagandha root extract | 150 mg |
+Other ingredients</pre>
+    <ul>
+      <li>An empty % column shows a dagger (†), meaning a Daily Value is not established.</li>
+      <li>A line that starts with a hyphen is indented as a sub-ingredient.</li>
+      <li>A line without a vertical bar becomes a full-width group heading.</li>
+    </ul>
+    <p>Choose the <strong>Label</strong> style for a classic bold-ruled panel or <strong>Clean</strong> for a lighter look. You can also show the panel inside a collapsible tab and add a footnote.</p>
+
+    <h2 id="subscriptions">Subscriptions</h2>
+    <p>Dose shows subscription options when your products have selling plans. Selling plans are created by a subscription app, such as the free <strong>Shopify Subscriptions</strong> app.</p>
+    <ul>
+      <li>In the <strong>Buy buttons</strong> block, turn on <strong>Show purchase options</strong>. Shoppers can choose one-time purchase or subscribe, with the savings shown.</li>
+      <li>Use <strong>Preselect subscription</strong> to select the subscription option by default.</li>
+      <li>The <strong>Subscription comparison</strong> section shows both prices side by side. If the product has no subscription plan, the section is hidden from shoppers and a notice is shown only in the theme editor.</li>
+    </ul>
+    <p>Customers manage their subscriptions from their account.</p>
+
+    <h2 id="collections">Collections and search</h2>
+    <ul>
+      <li><strong>Product grid</strong> (collection pages): products per page, columns, collection image and description, second image on hover, vendor, filtering and sorting.</li>
+      <li><strong>Filters</strong> are set up with the free <strong>Shopify Search &amp; Discovery</strong> app (for example by price, availability, product type or tag).</li>
+      <li><strong>Predictive search</strong> suggests products, collections, pages and articles as shoppers type.</li>
+      <li><strong>Collections grid</strong> lists all collections on <code>/collections</code>.</li>
+    </ul>
+
+    <h2 id="quiz">Product quiz</h2>
+    <p>The quiz asks a few questions and recommends the product that matches the most answers.</p>
+    <ol>
+      <li>Go to <strong>Online Store → Pages</strong>, create a page (for example "Find your formula") and choose the <strong>quiz</strong> template.</li>
+      <li>In the theme editor, open that page. In the <strong>Product quiz</strong> section, edit the intro and result text.</li>
+      <li>Each <strong>Question</strong> block has up to four answers. Pick a recommended product for each answer.</li>
+      <li>Add the page to your menu or link to it from the hero buttons.</li>
+    </ol>
+    <div class="note">When answers point to different products, the product chosen most often wins. If there is a tie, the product picked first wins.</div>
+
+    <h2 id="bundle">Bundle builder</h2>
+    <p>Shoppers pick several products and add them to the cart in one click, with progress toward discount tiers.</p>
+    <ol>
+      <li>Create a page (for example "Build your bundle") and choose the <strong>bundle</strong> template.</li>
+      <li>In the <strong>Bundle builder</strong> section, choose the collection to show and set up to two tiers, for example 3 items for 10% off and 5 items for 15% off.</li>
+      <li>Create matching automatic discounts in <strong>Discounts → Create discount → Amount off products</strong>: method <em>Automatic</em>, minimum quantity of items equal to the tier, applied to the same products.</li>
+    </ol>
+    <div class="note warn">The section only shows the tiers. The discount itself is applied at checkout by the automatic discounts you create. If you change the tiers, update your discounts too. Gift cards are never added to bundles.</div>
+
+    <h2 id="cart">Cart</h2>
+    <ul>
+      <li>Choose a <strong>cart drawer</strong> (opens over the page) or a <strong>cart page</strong> in Theme settings → Cart.</li>
+      <li>Shoppers can change quantities, remove items and apply discount codes. Codes that don't apply are removed with a short message.</li>
+      <li>Turn on <strong>Show order note</strong> on the cart page to collect special instructions.</li>
+      <li>Automatic discounts and subscription details are shown for each line.</li>
+    </ul>
+
+    <h2 id="blog">Blog and pages</h2>
+    <ul>
+      <li><strong>Blog posts</strong>: columns, topic filter (based on article tags), featured image, date, author and excerpt.</li>
+      <li><strong>Blog post</strong>: featured image, author and estimated reading time.</li>
+      <li><strong>Contact page</strong>: create a page with the <strong>contact</strong> template.</li>
+      <li><strong>Gift cards</strong>: a dedicated gift card page shows the code and balance, with buttons to print it or add it to Apple Wallet.</li>
+      <li><strong>Password page</strong>: logo, heading and optional newsletter signup while your store is closed.</li>
+    </ul>
+
+    <h2 id="apps">Apps and custom content</h2>
+    <ul>
+      <li>The product page and the <strong>Custom section</strong> accept app blocks. Add them from the theme editor after installing an app.</li>
+      <li>Most text settings support dynamic sources, so you can connect them to metafields and metaobjects.</li>
+    </ul>
+    <div class="note warn"><strong>Code changes:</strong> editing theme code is not covered by support. If you customize the code, duplicate the theme first and keep a backup. Customized themes may not update cleanly to new versions.</div>
+
+    <h2 id="languages">Languages</h2>
+    <p>Dose includes storefront and theme editor text in <strong>English</strong> and <strong>Portuguese (Brazil)</strong>. To change any storefront wording, go to <strong>Online Store → Themes → ⋯ → Edit default theme content</strong>. To sell in more languages, use Shopify's language settings and a translation app.</p>
+
+    <h2 id="performance">Performance and accessibility</h2>
+    <ul>
+      <li>Upload images at least 2000 px wide. Shopify serves smaller sizes automatically.</li>
+      <li>Add alt text to product and section images so screen reader users know what they show.</li>
+      <li>Keep the hero image as the first image on the page. It loads with high priority for a fast first view.</li>
+      <li>Install only the apps you need; each app can add scripts that slow the store down.</li>
+      <li>Interactive elements are keyboard accessible, and the theme respects the "reduce motion" setting.</li>
+    </ul>
+
+    <h2 id="faq">FAQ</h2>
+    <h3>Why doesn't the supplement facts panel show on my product?</h3>
+    <p>The panel is hidden when there are no nutrient rows. Check that the product has the <code>custom.supplement_facts</code> metafield filled in and that the block is connected to it. See <a href="#supplement-facts">Supplement facts setup</a>.</p>
+    <h3>Why don't I see subscription options?</h3>
+    <p>Subscriptions need a subscription app that adds selling plans to your products. Also check that <strong>Show purchase options</strong> is on in the Buy buttons block.</p>
+    <h3>The bundle builder shows a discount, but checkout doesn't apply it. Why?</h3>
+    <p>The tiers in the section are only displayed to shoppers. Create matching automatic discounts in Shopify admin. See <a href="#bundle">Bundle builder</a>.</p>
+    <h3>How do I add filters to collection pages?</h3>
+    <p>Install the free Shopify Search &amp; Discovery app, choose your filters there, and keep <strong>Enable filtering</strong> on in the Product grid section.</p>
+    <h3>How do I change the quiz recommendations?</h3>
+    <p>Open the quiz page in the theme editor, select each Question block and choose a recommended product for each answer.</p>
+    <h3>How do I create a dropdown menu?</h3>
+    <p>In <strong>Online Store → Navigation</strong>, drag a menu item under another item to nest it. The parent item becomes a dropdown.</p>
+    <h3>Can I switch between the Dose and Botanical styles?</h3>
+    <p>Yes. Your products and content stay the same; only colors, fonts and shapes change.</p>
+    <h3>How do I update the theme?</h3>
+    <p>When a new version is available, Shopify shows it in <strong>Online Store → Themes</strong>. Updating adds a new copy of the theme with your settings, so you can preview it before you publish.</p>
+
+    <h2 id="support">Support</h2>
+    <p>Need help with Dose? Send us a message through our <a href="https://docs.google.com/forms/d/e/1FAIpQLSdiKvz4cHsKrFXNCGJOqzrhpwxcJfW2J0SgLNbBOZyJIBLVEw/viewform">support contact form</a>. You'll get a copy of your message by email right away, and we reply within two business days, Monday to Friday.</p>
+    <p>Please include your store URL (for example <code>your-store.myshopify.com</code>), the page where you see the issue and a screenshot if possible.</p>
+    <p>Support covers theme setup, settings and bugs. It doesn't cover custom code changes, third-party apps or store design services.</p>
+
+    <h2 id="changelog">Changelog</h2>
+    <h3>1.0.0 <span class="badge">Initial release</span></h3>
+    <ul>
+      <li>Two styles: Dose and Botanical.</li>
+      <li>Supplement facts panel, badges, lab report, supply calculator and complementary products on the product page.</li>
+      <li>Product quiz and bundle builder page templates.</li>
+      <li>Subscription-ready purchase options and subscription comparison section.</li>
+      <li>Cart drawer and cart page with discount codes, predictive search and collection filters.</li>
+      <li>English and Portuguese (Brazil) translations.</li>
+    </ul>
+  </main>
+</div>
+</body>
+</html>
