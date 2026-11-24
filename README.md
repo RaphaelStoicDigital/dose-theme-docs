@@ -1,3 +1,3 @@
-# Dose theme documentation
+# Daily Dose theme documentation
 
-Public documentation for the Dose Shopify theme, served with GitHub Pages.
+Public documentation for the Daily Dose Shopify theme, served with GitHub Pages.
